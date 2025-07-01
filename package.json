@@ -1,7 +1,27 @@
 {
+  "name": "mini-message-board",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/replakcan/mini-message-board#readme",
+  "bugs": {
+    "url": "https://github.com/replakcan/mini-message-board/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/replakcan/mini-message-board.git"
+  },
+  "license": "MIT",
+  "author": "Alper Mutlu Akcan <alper.makcan@gmail.com>",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "uuid": "^11.1.0"
-  }
+  },
+  "devDependencies": {}
 }
