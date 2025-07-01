@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles/index.css" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <ul>
+      <% messages.forEach(function(message) { %>
+      <li>
+        <strong><%= message.user %></strong>: <%= message.text %><br />
+        <small><%= message.added.toLocaleString() %></small><br />
+        <a href="/message/<%= message.id %>">Open</a>
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>
