@@ -1,54 +1,19 @@
 const { Router } = require('express')
-const uuid = require('uuid')
-
-const messages = [
-  {
-    id: uuid.v4(),
-    text: 'Hi there!',
-    user: 'Amando',
-    added: new Date(),
-  },
-  {
-    id: uuid.v4(),
-    text: 'Hello World!',
-    user: 'Charles',
-    added: new Date(),
-  },
-]
+const {
+  createMessageGet,
+  getAllMessages,
+  createMessagePost,
+  getMessageById,
+} = require('../controllers/indexController')
 
 const indexRouter = Router()
 
-indexRouter.get('/', (req, res) => {
-  res.render('index', { title: 'Mini Messageboard', messages })
-})
+indexRouter.get('/', getAllMessages)
 
-indexRouter.get('/new', (req, res) => {
-  res.render('form')
-})
+indexRouter.get('/new', createMessageGet)
 
-indexRouter.post('/new', (req, res) => {
-  const { author_name, message } = req.body
+indexRouter.post('/new', createMessagePost)
 
-  messages.push({
-    id: uuid.v4(),
-    text: message,
-    user: author_name,
-    added: new Date(),
-  })
-
-  res.redirect('/')
-})
-
-indexRouter.get('/message/:messageId', (req, res) => {
-  const { messageId } = req.params
-
-  const message = messages.find((msg) => msg.id === messageId)
-
-  if (!message) {
-    return res.status(404).send('Message not found')
-  }
-
-  res.render('message', { title: 'Message Details', message })
-})
+indexRouter.get('/message/:messageId', getMessageById)
 
 module.exports = indexRouter
