@@ -12,7 +12,7 @@ VALUES ('Alper Akcan', 'hello from the other side'), ('Odin', 'selamin hello'), 
 async function main() {
   console.log('seeding...')
   const client = new Client({
-    connectionString: `postgresql://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@localhost:5432/${process.env.DATABASE}`,
+    connectionString: process.env.DATABASE_URL,
   })
 
   await client.connect()
