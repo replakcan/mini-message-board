@@ -8,5 +8,5 @@ const validateMessage = [
     .isLength({ min: 1, max: 20 })
     .withMessage('Author name must be between 1 and 20 characters'),
 
-  body('message').isLength({ max: 100 }).withMessage('Message must be at most 100 characters long'),
+  body('message').isLength({ max: 255 }).withMessage('Message must be at most 255 characters long'),
 ]
